@@ -1,0 +1,1 @@
+web: java -Dspring.profiles.active=prod -jar target/log-sys-service-1.0.0-SNAPSHOT.jar
