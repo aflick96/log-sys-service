@@ -1,3 +1,9 @@
+/*
+ * BookingQuote.java
+ * 
+ * This class represents a BookingQuote entity in the system. It includes fields for the booking it is associated with, the price, and the estimated delivery time in days.
+ */
+
 package edu.log.models.booking;
 
 import jakarta.persistence.*;

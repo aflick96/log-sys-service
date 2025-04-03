@@ -1,3 +1,9 @@
+/*
+ * ShippingStatus.java
+ * 
+ * This class represents the ShippingStatus entity in the database. It contains information about the shipping status of a booking, including the associated booking, status type, and warehouse.
+ */
+
 package edu.log.models.shipping;
 
 import edu.log.models.shipping.enums.ShippingStatusType;

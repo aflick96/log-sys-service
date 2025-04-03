@@ -1,3 +1,9 @@
+/*
+ * WarehouseController.java
+ * 
+ * This controller handles the warehouse operations, including retrieving all warehouses, getting a warehouse by id, and creating a new warehouse.
+ */
+
 package edu.log.controllers;
 
 import edu.log.models.warehouse.Warehouse;

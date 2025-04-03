@@ -1,3 +1,9 @@
+/*
+ * BookingRepository.java
+ * 
+ * This interface defines the repository for the Booking entity. It extends JpaRepository to provide CRUD operations and custom query methods for finding bookings by various attributes.
+ */
+
 package edu.log.repositories.booking;
 
 import edu.log.models.booking.Booking;

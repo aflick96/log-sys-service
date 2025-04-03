@@ -1,3 +1,9 @@
+/*
+ * GlobalExceptionHandler.java
+ * 
+ * This class handles global exceptions for the application. It uses Spring's @RestControllerAdvice to catch and process exceptions thrown by controllers.
+ */
+
 package edu.log.exceptions;
 
 import org.springframework.http.HttpStatus;
@@ -5,9 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;

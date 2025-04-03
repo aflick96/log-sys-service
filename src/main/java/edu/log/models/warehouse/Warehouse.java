@@ -1,3 +1,9 @@
+/*
+ * Warehouse.java
+ * 
+ * This class represents a Warehouse entity in the system. It is mapped to the 'warehouse' table in the database.
+ */
+
 package edu.log.models.warehouse;
 
 import jakarta.persistence.*;

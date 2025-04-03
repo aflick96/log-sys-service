@@ -1,4 +1,11 @@
+/*
+ * BookingRequestDTO.java
+ * 
+ * This DTO is used to transfer booking request data from the client to the server. It includes fields for warehouse, toAddress, description, serviceType, volume, and weight.
+ */
+
 package edu.log.dto;
+
 import io.swagger.v3.oas.annotations.media.Schema;
 
 @Schema(description = "Booking request object")
