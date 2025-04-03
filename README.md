@@ -15,5 +15,14 @@ or set the env variable with ```set SPRING_PROFILES_ACTIVE=dev``` and run ```mvn
 3. In the User Name add `sa`
 4. Select Connect to connect
 
+## Authentication
+1. hit the /api/auth/create endpoint and include a json object in the POST request:
+    {
+        "email": "your-email"
+        "password": "your-password"
+    }
+2. this will create an entry in the Token and User tables and a token that can be used to send requests.
+3. in Postman add an Authorization header with a "Bearer your-token" value with all requests.
+
 ## Swagger
 - Available at http://localhost:8080/swagger-ui/index.html
