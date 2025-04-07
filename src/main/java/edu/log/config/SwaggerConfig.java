@@ -1,3 +1,10 @@
+
+/*
+ * SwaggerConfig.java
+ * 
+ * This configuration class sets up Swagger for API documentation. It defines the OpenAPI bean which includes metadata about the API such as title, description, and version. This allows for easy generation of API documentation and testing through Swagger UI.
+ */
+
 package edu.log.config;
 
 import io.swagger.v3.oas.models.OpenAPI;

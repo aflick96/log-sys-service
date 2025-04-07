@@ -1,3 +1,9 @@
+/*
+ * Booking.java
+ * 
+ * This class represents a Booking entity in the system. It includes fields for various attributes of a booking, such as the warehouse, toAddress, description, serviceType, volume, weight, status, and distance.
+ */
+
 package edu.log.models.booking;
 
 import edu.log.models.warehouse.Warehouse;

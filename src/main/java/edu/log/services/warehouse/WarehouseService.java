@@ -1,3 +1,9 @@
+/*
+ * WarehouseService.java
+ * 
+ * This service class handles the business logic for warehouse operations, including creating a new warehouse, retrieving a warehouse by id, and getting all warehouses.
+ */
+
 package edu.log.services.warehouse;
 
 import edu.log.models.warehouse.Warehouse;

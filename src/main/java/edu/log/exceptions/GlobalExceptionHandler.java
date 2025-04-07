@@ -1,13 +1,20 @@
+/*
+ * GlobalExceptionHandler.java
+ * 
+ * This class handles global exceptions for the application. It uses Spring's @RestControllerAdvice to catch and process exceptions thrown by controllers.
+ */
+
 package edu.log.exceptions;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.server.ResponseStatusException;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
-
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -75,6 +82,30 @@ public class GlobalExceptionHandler {
         errors.put("status", HttpStatus.BAD_REQUEST.value());
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
+    }
+
+    // Handle MethodArgumentTypeMismatchException
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<Map<String, Object>> handleMethodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex) {
+        Map<String, Object> errors = new HashMap<>();
+    
+        String message = String.format("Invalid value '%s' for parameter '%s'. Expected type: %s",
+                ex.getValue(), ex.getName(), ex.getRequiredType().getSimpleName());
+    
+        errors.put("error", "Invalid Parameter");
+        errors.put("message", message);
+        errors.put("status", HttpStatus.BAD_REQUEST.value());
+    
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
+    }
+
+    // Handle ResponseStatusException
+    @ExceptionHandler(ResponseStatusException.class)
+    public ResponseEntity<Map<String, Object>> handleResponseStatusException(ResponseStatusException ex) {
+        HttpStatusCode status = ex.getStatusCode();
+        String error = (status instanceof HttpStatus) ? ((HttpStatus) status).getReasonPhrase() : "Unknown Status";
+        String message = ex.getReason() != null ? ex.getReason() : "An error occurred";
+        return buildErrorResponse(HttpStatus.valueOf(status.value()), error, message);
     }
 
     // Build error response in json format

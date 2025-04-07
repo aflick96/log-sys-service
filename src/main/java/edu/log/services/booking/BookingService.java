@@ -1,3 +1,9 @@
+/*
+ * BookingService.java
+ * 
+ * This service class handles the business logic for managing bookings. It includes methods to create a new booking, retrieve all bookings, and get a booking by its ID. It also integrates with other services like Google Maps for distance calculation and InvoiceService for generating invoices.
+ */
+
 package edu.log.services.booking;
 
 import edu.log.models.booking.Booking;

@@ -1,3 +1,9 @@
+/*
+ * BookingCalculator.java
+ * 
+ * This class provides utility methods to compute the price and estimated delivery time for a booking based on its attributes and service type. It includes methods for converting meters to miles, applying service multipliers, and rounding values to two decimal places.
+ */
+
 package edu.log.utils;
 
 import edu.log.models.booking.Booking;

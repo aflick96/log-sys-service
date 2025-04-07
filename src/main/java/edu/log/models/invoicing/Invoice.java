@@ -1,3 +1,9 @@
+/*
+ * Invoice.java
+ * 
+ * This class represents an invoice entity in the system. It includes fields for the invoice ID, associated booking, total amount, status, and creation date.
+ */
+
 package edu.log.models.invoicing;
 
 import edu.log.models.booking.Booking;

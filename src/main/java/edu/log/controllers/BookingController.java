@@ -1,3 +1,9 @@
+/*
+ * BookingController.java
+ * 
+ * Controller for managing bookings in the logistics application.
+ */
+
 package edu.log.controllers;
 
 import edu.log.models.booking.Booking;

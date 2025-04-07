@@ -1,13 +1,17 @@
+/*
+ * InvoicingController.java
+ * 
+ * This controller handles the invoicing operations, including retrieving all invoices and unpaid invoices.
+ */
+
 package edu.log.controllers;
 
 import edu.log.models.invoicing.Invoice;
 import edu.log.services.invoicing.InvoiceService;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
 import java.util.List;
 import java.util.Optional;
 

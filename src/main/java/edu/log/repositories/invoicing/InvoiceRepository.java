@@ -1,3 +1,9 @@
+/*
+ * InvoiceRepository.java
+ * 
+ * This repository interface is used to perform CRUD operations on the Invoice entity. It extends JpaRepository to leverage Spring Data JPA's capabilities for database interactions.
+ */
+
 package edu.log.repositories.invoicing;
 
 import edu.log.models.invoicing.Invoice;

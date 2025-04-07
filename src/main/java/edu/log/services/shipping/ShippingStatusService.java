@@ -1,3 +1,9 @@
+/*
+ * ShippingStatusService.java
+ * 
+ * This service class handles the business logic for managing shipping statuses. It interacts with the repositories to perform CRUD operations on ShippingStatus entities.
+ */
+
 package edu.log.services.shipping;
 
 import edu.log.models.shipping.ShippingStatus;

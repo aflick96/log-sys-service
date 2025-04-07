@@ -1,3 +1,9 @@
+/*
+ * InvoiceService.java
+ * 
+ * This service class handles the business logic for managing invoices, including generating new invoices, retrieving all invoices, and marking invoices as paid. It interacts with the InvoiceRepository to perform CRUD operations on Invoice entities.
+ */
+
 package edu.log.services.invoicing;
 
 import org.springframework.stereotype.Service;

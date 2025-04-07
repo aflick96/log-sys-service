@@ -1,3 +1,9 @@
+/*
+ * LogisticSystemService.java
+ * 
+ * This is the main entry point for the Logistic System Service application. It uses Spring Boot to bootstrap the application. The class extends SpringBootServletInitializer to support deployment as a WAR file in a servlet container.
+ */
+
 package edu.log;
 
 import org.springframework.boot.SpringApplication;

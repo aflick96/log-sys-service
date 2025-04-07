@@ -1,3 +1,9 @@
+/*
+ * ShippingStatusController.java
+ * 
+ * This controller handles the shipping status operations, including retrieving, creating, and updating shipping statuses.
+ */
+
 package edu.log.controllers;
 
 import edu.log.models.shipping.ShippingStatus;

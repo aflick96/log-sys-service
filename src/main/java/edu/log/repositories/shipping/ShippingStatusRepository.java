@@ -1,3 +1,9 @@
+/*
+ * ShippingStatusRepository.java
+ * 
+ * This repository interface provides methods to perform CRUD operations on ShippingStatus entities. It extends JpaRepository to leverage Spring Data JPA's capabilities for database interactions.
+ */
+
 package edu.log.repositories.shipping;
 
 import edu.log.models.shipping.ShippingStatus;

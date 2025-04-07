@@ -1,3 +1,9 @@
+/*
+ * GoogleMapsService.java
+ * 
+ * This service class interacts with the Google Maps API to calculate the distance between two addresses. It uses RestTemplate to make HTTP requests and processes the JSON response to extract the distance in meters.
+ */
+
 package edu.log.services.google;
 
 import org.springframework.beans.factory.annotation.Value;
