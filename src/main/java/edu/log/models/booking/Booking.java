@@ -50,9 +50,21 @@ public class Booking {
     @JsonManagedReference
     private BookingQuote bookingQuote;
 
-    public Booking() {}
+    @Column(name = "container_id", unique = true, nullable = false)
+    private String containerId;
 
-    public Booking(Warehouse warehouse, String toAddress, String description, BookingServiceType serviceType, Double volume, Double weight, Double distance) {
+    public String getContainerId() {
+        return containerId;
+    }
+
+    public void setContainerId(String containerId) {
+        this.containerId = containerId;
+    }
+
+    public Booking() {
+    }
+
+    public Booking(Warehouse warehouse, String toAddress, String description, BookingServiceType serviceType, Double volume, Double weight, Double distance, String containerId) {
         this.warehouse = warehouse;
         this.toAddress = toAddress;
         this.description = description;
@@ -61,37 +73,89 @@ public class Booking {
         this.weight = weight;
         this.status = BookingStatus.PENDING;
         this.distance = distance;
+        this.containerId = containerId;
+    }
+    
+
+    public Long getId() {
+        return id;
     }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public Warehouse getWarehouse() { return warehouse; }
-    public void setWarehouse(Warehouse warehouse) { this.warehouse = warehouse; }
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
 
-    public String getToAddress() { return toAddress; }
-    public void setToAddress(String toAddress) { this.toAddress = toAddress; }
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public String getToAddress() {
+        return toAddress;
+    }
 
-    public BookingServiceType getServiceType() { return serviceType; }
-    public void setServiceType(BookingServiceType serviceType) { this.serviceType = serviceType; }
+    public void setToAddress(String toAddress) {
+        this.toAddress = toAddress;
+    }
 
-    public Double getVolume() { return volume; }
-    public void setVolume(Double volume) { this.volume = volume; }
+    public String getDescription() {
+        return description;
+    }
 
-    public Double getWeight() { return weight; }
-    public void setWeight(Double weight) { this.weight = weight; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public BookingStatus getStatus() { return status; }
-    public void setStatus(BookingStatus status) { this.status = status; }
+    public BookingServiceType getServiceType() {
+        return serviceType;
+    }
 
-    public Double getDistance() { return distance; }
-    public void setDistance(Double distance) { this.distance = distance; }
+    public void setServiceType(BookingServiceType serviceType) {
+        this.serviceType = serviceType;
+    }
 
-    public BookingQuote getBookingQuote() { return bookingQuote; }
-    public void setBookingQuote(BookingQuote bookingQuote) { this.bookingQuote = bookingQuote; }
+    public Double getVolume() {
+        return volume;
+    }
+
+    public void setVolume(Double volume) {
+        this.volume = volume;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
+    public BookingStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BookingStatus status) {
+        this.status = status;
+    }
+
+    public Double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(Double distance) {
+        this.distance = distance;
+    }
+
+    public BookingQuote getBookingQuote() {
+        return bookingQuote;
+    }
+
+    public void setBookingQuote(BookingQuote bookingQuote) {
+        this.bookingQuote = bookingQuote;
+    }
 
     @Override
     public String toString() {
@@ -106,6 +170,7 @@ public class Booking {
                 ", status=" + status +
                 ", distance=" + distance +
                 ", bookingQuote=" + bookingQuote +
+                ", containerId='" + containerId + 
                 '}';
     }
 }

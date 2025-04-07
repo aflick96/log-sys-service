@@ -37,7 +37,10 @@ public class BookingService {
         this.invoiceService = invoiceService;
         this.invoiceRepo = invoiceRepo;
     }
-
+    public Optional<Booking> getBookingByContainerId(String containerId) {
+        return b_repo.findByContainerId(containerId);
+    }
+    
     // Create a new booking
     public Booking createBooking(Booking booking) {
         if (booking.getWarehouse() == null)

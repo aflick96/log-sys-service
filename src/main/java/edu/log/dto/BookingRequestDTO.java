@@ -20,7 +20,7 @@ public class BookingRequestDTO {
     @Schema(example = "Stuff")
     private String description;
 
-    @Schema(example = "ECONOMY", allowableValues = {"ECONOMY", "EXPRESS", "OVERNIGHT"})
+    @Schema(example = "ECONOMY", allowableValues = { "ECONOMY", "EXPRESS", "OVERNIGHT" })
     private String serviceType;
 
     @Schema(example = "25.0")
@@ -28,8 +28,20 @@ public class BookingRequestDTO {
 
     @Schema(example = "15.0")
     private Double weight;
+    
+    @Schema(example = "CONT-123456")
+    private String containerId;
 
-    public BookingRequestDTO() {}
+    public String getContainerId() {
+        return containerId;
+    }
+
+    public void setContainerId(String containerId) {
+        this.containerId = containerId;
+    }
+
+    public BookingRequestDTO() {
+    }
 
     public WarehouseDTO getWarehouse() {
         return warehouse;
