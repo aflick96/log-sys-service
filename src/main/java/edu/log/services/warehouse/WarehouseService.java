@@ -8,6 +8,8 @@ package edu.log.services.warehouse;
 
 import edu.log.models.warehouse.Warehouse;
 import edu.log.repositories.warehouse.WarehouseRepository;
+import edu.log.services.google.GoogleMapsService;
+
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -15,18 +17,33 @@ import java.util.Optional;
 @Service
 public class WarehouseService {
     private final WarehouseRepository w_repo;
+    private final GoogleMapsService mapsService;
 
-    public WarehouseService(WarehouseRepository w_repo) {
+    public WarehouseService(WarehouseRepository w_repo, GoogleMapsService mapsService) {
         this.w_repo = w_repo;
+        this.mapsService = mapsService;
     }
-
     // Create a new warehouse
     public Warehouse createWarehouse(String name, String address) {
-        if (w_repo.findByName(name) != null) throw new IllegalArgumentException("Warehouse already exists with name: " + name);
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Warehouse name must not be empty");
+        }
+        if (address == null || address.trim().isEmpty()) {
+            throw new IllegalArgumentException("Warehouse address must not be empty");
+        }
+        if (address.length() < 10) {
+            throw new IllegalArgumentException("Warehouse address must be at least 10 characters long");
+        }
+        if (!mapsService.isAddressValid(address)) {
+            throw new IllegalArgumentException("Invalid warehouse address. Please enter a real address.");
+        }
+        if (w_repo.findByName(name) != null) {
+            throw new IllegalArgumentException("Warehouse already exists with name: " + name);
+        }
+    
         Warehouse warehouse = new Warehouse(name, address);
         return w_repo.save(warehouse);
     }
-
     // Get a warehouse by id
     public Warehouse getWarehouseById(Long id) {
         Optional<Warehouse> warehouse = w_repo.findById(id);

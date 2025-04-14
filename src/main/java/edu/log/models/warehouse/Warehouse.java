@@ -7,18 +7,23 @@
 package edu.log.models.warehouse;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "warehouse")
 public class Warehouse {
     
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Warehouse name must not be empty")
     @Column(name = "name")
     private String name;
 
+    @NotBlank(message = "Warehouse address must not be empty")
+    @Size(min = 10, message = "Warehouse address must be at least 10 characters long")
     @Column(name = "address")
     private String address;
 
