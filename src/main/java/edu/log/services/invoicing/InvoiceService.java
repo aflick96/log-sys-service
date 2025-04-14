@@ -41,13 +41,20 @@ public class InvoiceService {
     }
 
     public Optional<List<Invoice>> getUnpaidInvoices() {
-        return Optional.of(invoiceRepo.findAll().stream().filter(invoice -> invoice.getStatus() == InvoiceStatus.UNPAID).toList());
+        return Optional.of(
+                invoiceRepo.findAll().stream().filter(invoice -> invoice.getStatus() == InvoiceStatus.UNPAID).toList());
     }
 
     public Invoice markAsPaid(Long id) {
         Invoice invoice = invoiceRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invoice not found"));
+    
+        if (invoice.getStatus() == InvoiceStatus.PAID) {
+            throw new IllegalStateException("Invoice is already paid");
+        }
+    
         invoice.setStatus(InvoiceStatus.PAID);
         return invoiceRepo.save(invoice);
     }
+    
 }

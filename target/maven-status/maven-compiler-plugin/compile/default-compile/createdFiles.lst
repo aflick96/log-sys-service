@@ -10,6 +10,7 @@ edu\log\models\invoicing\Invoice.class
 edu\log\dto\BookingRequestDTO.class
 edu\log\models\user\Token.class
 edu\log\dto\UserDTO.class
+edu\log\dto\InvoiceDTO.class
 edu\log\models\shipping\enums\ShippingStatusType.class
 edu\log\repositories\invoicing\InvoiceRepository.class
 edu\log\models\booking\enums\BookingServiceType.class

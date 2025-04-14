@@ -73,10 +73,6 @@ public class Invoice {
         this.status = status;
     }
 
-    public boolean isPaid() {
-        return this.status == InvoiceStatus.PAID;
-    }
-
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
