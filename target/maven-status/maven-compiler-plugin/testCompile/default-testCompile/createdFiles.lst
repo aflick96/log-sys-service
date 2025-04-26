@@ -1,1 +1,7 @@
-edu\log\AppTest.class
+edu\log\config\TestSecurityConfig.class
+edu\log\controllers\WarehouseControllerTest.class
+edu\log\controllers\InvoicingControllerTest.class
+edu\log\controllers\ShippingStatusControllerTest.class
+edu\log\controllers\BookingControllerTest.class
+edu\log\services\user\UserServiceTest.class
+edu\log\controllers\AuthControllerTest.class

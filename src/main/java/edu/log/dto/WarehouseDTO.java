@@ -10,6 +10,10 @@ public class WarehouseDTO {
     private Long id;
 
     public WarehouseDTO() {}
+    
+    public WarehouseDTO(Long id) {
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
@@ -18,4 +22,5 @@ public class WarehouseDTO {
     public void setId(Long id) {
         this.id = id;
     }
+    
 }
