@@ -32,9 +32,9 @@ public class WarehouseService {
         if (address.length() < 10) {
             throw new IllegalArgumentException("Warehouse address must be at least 10 characters long");
         }
-        // if (!mapsService.isAddressValid(address)) {
-        //     throw new IllegalArgumentException("Invalid warehouse address. Please enter a real address.");
-        // }
+        if (!mapsService.isAddressValid(address)) {
+            throw new IllegalArgumentException("Invalid warehouse address. Please enter a real address.");
+        }
         if (w_repo.findByName(name) != null) {
             throw new IllegalArgumentException("Warehouse already exists with name: " + name);
         }
