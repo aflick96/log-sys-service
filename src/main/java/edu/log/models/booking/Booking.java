@@ -53,17 +53,8 @@ public class Booking {
     @Column(name = "container_id", unique = true, nullable = false)
     private String containerId;
 
-    public String getContainerId() {
-        return containerId;
-    }
-
-    public void setContainerId(String containerId) {
-        this.containerId = containerId;
-    }
-
-    public Booking() {
-    }
-
+    // Constructors
+    public Booking() {}
     public Booking(Warehouse warehouse, String toAddress, String description, BookingServiceType serviceType, Double volume, Double weight, Double distance, String containerId) {
         this.warehouse = warehouse;
         this.toAddress = toAddress;
@@ -76,86 +67,39 @@ public class Booking {
         this.containerId = containerId;
     }
     
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public Long getId() {
-        return id;
-    }
+    public Warehouse getWarehouse() { return warehouse; }
+    public void setWarehouse(Warehouse warehouse) { this.warehouse = warehouse; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    public String getToAddress() { return toAddress; }
+    public void setToAddress(String toAddress) { this.toAddress = toAddress;}
 
-    public Warehouse getWarehouse() {
-        return warehouse;
-    }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public void setWarehouse(Warehouse warehouse) {
-        this.warehouse = warehouse;
-    }
+    public BookingServiceType getServiceType() { return serviceType; }
+    public void setServiceType(BookingServiceType serviceType) { this.serviceType = serviceType; }
 
-    public String getToAddress() {
-        return toAddress;
-    }
+    public Double getVolume() { return volume; }
+    public void setVolume(Double volume) { this.volume = volume; }
 
-    public void setToAddress(String toAddress) {
-        this.toAddress = toAddress;
-    }
+    public Double getWeight() { return weight; }
+    public void setWeight(Double weight) { this.weight = weight; }
 
-    public String getDescription() {
-        return description;
-    }
+    public BookingStatus getStatus() { return status; }
+    public void setStatus(BookingStatus status) { this.status = status; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public Double getDistance() { return distance; }
+    public void setDistance(Double distance) { this.distance = distance; }
 
-    public BookingServiceType getServiceType() {
-        return serviceType;
-    }
+    public BookingQuote getBookingQuote() { return bookingQuote; }
+    public void setBookingQuote(BookingQuote bookingQuote) { this.bookingQuote = bookingQuote; }
 
-    public void setServiceType(BookingServiceType serviceType) {
-        this.serviceType = serviceType;
-    }
-
-    public Double getVolume() {
-        return volume;
-    }
-
-    public void setVolume(Double volume) {
-        this.volume = volume;
-    }
-
-    public Double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
-    }
-
-    public BookingStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(BookingStatus status) {
-        this.status = status;
-    }
-
-    public Double getDistance() {
-        return distance;
-    }
-
-    public void setDistance(Double distance) {
-        this.distance = distance;
-    }
-
-    public BookingQuote getBookingQuote() {
-        return bookingQuote;
-    }
-
-    public void setBookingQuote(BookingQuote bookingQuote) {
-        this.bookingQuote = bookingQuote;
-    }
+    public String getContainerId() { return containerId; }
+    public void setContainerId(String containerId) { this.containerId = containerId; }
 
     @Override
     public String toString() {

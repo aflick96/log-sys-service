@@ -32,62 +32,50 @@ public class BookingRequestDTO {
     @Schema(example = "CONT-123456")
     private String containerId;
 
-    public String getContainerId() {
-        return containerId;
-    }
-
-    public void setContainerId(String containerId) {
+    // constructors
+    public BookingRequestDTO() {}
+    public BookingRequestDTO(WarehouseDTO warehouse, String toAddress, String description, String serviceType, Double volume, Double weight, String containerId) {
+        this.warehouse = warehouse;
+        this.toAddress = toAddress;
+        this.description = description;
+        this.serviceType = serviceType;
+        this.volume = volume;
+        this.weight = weight;
         this.containerId = containerId;
     }
 
-    public BookingRequestDTO() {
-    }
+    // getters and setters
+    public String getContainerId() { return containerId; }
+    public void setContainerId(String containerId) { this.containerId = containerId; }
 
-    public WarehouseDTO getWarehouse() {
-        return warehouse;
-    }
+    public WarehouseDTO getWarehouse() { return warehouse; }
+    public void setWarehouse(WarehouseDTO warehouse) { this.warehouse = warehouse; }
 
-    public void setWarehouse(WarehouseDTO warehouse) {
-        this.warehouse = warehouse;
-    }
+    public String getToAddress() { return toAddress; }
+    public void setToAddress(String toAddress) { this.toAddress = toAddress; }
 
-    public String getToAddress() {
-        return toAddress;
-    }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public void setToAddress(String toAddress) {
-        this.toAddress = toAddress;
-    }
+    public String getServiceType() { return serviceType; }
+    public void setServiceType(String serviceType) { this.serviceType = serviceType; }
+    
+    public Double getVolume() { return volume; }
+    public void setVolume(Double volume) { this.volume = volume;}
 
-    public String getDescription() {
-        return description;
-    }
+    public Double getWeight() { return weight; }
+    public void setWeight(Double weight) { this.weight = weight; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getServiceType() {
-        return serviceType;
-    }
-
-    public void setServiceType(String serviceType) {
-        this.serviceType = serviceType;
-    }
-
-    public Double getVolume() {
-        return volume;
-    }
-
-    public void setVolume(Double volume) {
-        this.volume = volume;
-    }
-
-    public Double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Double weight) {
-        this.weight = weight;
+    @Override
+    public String toString() {
+        return "BookingRequestDTO{" +
+                "warehouse=" + warehouse +
+                ", toAddress='" + toAddress + '\'' +
+                ", description='" + description + '\'' +
+                ", serviceType='" + serviceType + '\'' +
+                ", volume=" + volume +
+                ", weight=" + weight +
+                ", containerId='" + containerId + '\'' +
+                '}';
     }
 }

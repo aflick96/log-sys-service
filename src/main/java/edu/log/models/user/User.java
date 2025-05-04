@@ -1,3 +1,8 @@
+/*
+ * User.java
+ * 
+ * This entity represents a user in the system. It contains fields for the user's ID, email, and password. The ID is auto-generated, and the email must be unique. The password is stored in a hashed format for security.
+ */
 package edu.log.models.user;
 
 import jakarta.persistence.*;
@@ -15,13 +20,14 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    // Constructors
     public User() {}
-
     public User(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

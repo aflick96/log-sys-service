@@ -28,12 +28,12 @@ public class TokenAuthFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        // Check if the Authorization header is present and starts with the expected prefix
         String header = request.getHeader("Authorization");
-
-
         if (header != null && header.startsWith(HEADER_PREFIX)) {
             String token = header.substring(HEADER_PREFIX.length());
 
+            // Validate the token using the UserService
             if (us.isTokenValid(token)) {
                 String email = us.getEmailFromToken(token);
                 if (email != null) {
@@ -43,6 +43,7 @@ public class TokenAuthFilter extends OncePerRequestFilter {
             }
         }
 
+        // Continue the filter chain
         filterChain.doFilter(request, response);
     }
 }

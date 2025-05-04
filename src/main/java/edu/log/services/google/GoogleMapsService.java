@@ -53,6 +53,7 @@ public class GoogleMapsService {
         return 0.0;
     }
 
+    // Validate address using Google Maps API
     public boolean isAddressValid(String address) {
         String url = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
                 URLEncoder.encode(address, StandardCharsets.UTF_8) +
@@ -67,5 +68,4 @@ public class GoogleMapsService {
         List<?> results = (List<?>) response.get("results");
         return results != null && !results.isEmpty();
     }
-
 }

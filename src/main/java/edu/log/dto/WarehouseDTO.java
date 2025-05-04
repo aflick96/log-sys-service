@@ -9,18 +9,20 @@ package edu.log.dto;
 public class WarehouseDTO {
     private Long id;
 
+    // Constructors
     public WarehouseDTO() {}
-    
     public WarehouseDTO(Long id) {
         this.id = id;
     }
 
-    public Long getId() {
-        return id;
-    }
+    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
-    public void setId(Long id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "WarehouseDTO{" +
+                "id=" + id +
+                '}';
     }
-    
 }

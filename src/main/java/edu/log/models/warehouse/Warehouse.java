@@ -27,13 +27,14 @@ public class Warehouse {
     @Column(name = "address")
     private String address;
 
+    // Constructors
     public Warehouse() {}
-
     public Warehouse(String name, String address) {
         this.name = name;
         this.address = address;
     }
 
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

@@ -25,6 +25,7 @@ public class UserService {
     @Autowired
     private TokenRepository tr;
 
+    // Register a new user and save it to the database
     public User registerUser(String email, String password) {
         if (ur.existsByEmail(email)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Email already exists: " + email);
@@ -35,6 +36,7 @@ public class UserService {
         return ur.save(user);
     }
 
+    // Validate user login credentials
     public boolean validateLogin(String email, String password) {
         User user = ur.findByEmail(email).orElse(null);
         if (user == null)
@@ -43,6 +45,7 @@ public class UserService {
         return encoder.matches(password, user.getPassword());
     }
 
+    // Create a token for the user or retrieve an existing one
     public Token createToken(User user) {
         if (user == null)
             throw new RuntimeException("User cannot be null");
@@ -64,6 +67,7 @@ public class UserService {
         return token;
     }
 
+    // Check if a token is valid
     public boolean isTokenValid(String tokenValue) {
         if (tokenValue == null || tokenValue.isEmpty())
             return false; // Invalid token value
@@ -77,6 +81,7 @@ public class UserService {
         return true;
     }
 
+    // Get the email associated with a token
     public String getEmailFromToken(String tokenValue) {
         if (tokenValue == null || tokenValue.isEmpty())
             return null; // Invalid token value
@@ -95,6 +100,7 @@ public class UserService {
         return null;
     }
 
+    // Get the token associated with a user's email
     public String getTokenFromEmail(String email) {
 
         if (email == null || email.isEmpty())

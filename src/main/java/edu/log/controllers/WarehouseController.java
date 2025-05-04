@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
@@ -19,11 +20,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/warehouses")
 public class WarehouseController {
-    private final WarehouseService w;
 
-    public WarehouseController(WarehouseService w) {
-        this.w = w;
-    }
+    @Autowired
+    private WarehouseService w;
+
+    // Constructor
+    public WarehouseController() {}
 
     // Get all warehouses
     @GetMapping
@@ -51,5 +53,4 @@ public class WarehouseController {
                 warehouse.getAddress());
         return ResponseEntity.ok(saved);
     }
-
 }

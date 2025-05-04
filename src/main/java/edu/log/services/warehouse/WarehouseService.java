@@ -5,6 +5,7 @@ import edu.log.repositories.warehouse.WarehouseRepository;
 import edu.log.services.google.GoogleMapsService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
@@ -12,13 +13,13 @@ import java.util.Optional;
 
 @Service
 public class WarehouseService {
-    private final WarehouseRepository w_repo;
-    private final GoogleMapsService mapsService;
+    @Autowired
+    private WarehouseRepository w_repo;
+    
+    @Autowired
+    private GoogleMapsService mapsService;
 
-    public WarehouseService(WarehouseRepository w_repo, GoogleMapsService mapsService) {
-        this.w_repo = w_repo;
-        this.mapsService = mapsService;
-    }
+    public WarehouseService() {}
 
     // Create a new warehouse
     public Warehouse createWarehouse(String name, String address) {

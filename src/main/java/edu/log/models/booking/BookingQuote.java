@@ -27,14 +27,15 @@ public class BookingQuote {
     @Column(name = "estimated_delivery_time", nullable = false)
     private Integer estimatedDeliveryTime; // in days
 
+    // Constructors
     public BookingQuote() {}
-
     public BookingQuote(Booking booking, Double price, Integer estimatedDeliveryTime) {
         this.booking = booking;
         this.price = price;
         this.estimatedDeliveryTime = estimatedDeliveryTime;
     }
 
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

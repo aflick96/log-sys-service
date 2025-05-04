@@ -2,11 +2,13 @@ package edu.log.dto;
 
 import edu.log.models.invoicing.Invoice;
 
-public class InvoiceDTO {  // <- this MUST match the filename
+public class InvoiceDTO {
     private Long id;
     private double totalAmount;
     private String status;
 
+    // Constructors
+    public InvoiceDTO() {}
     public InvoiceDTO(Invoice invoice) {
         this.id = invoice.getId();
         this.totalAmount = invoice.getTotalAmount();

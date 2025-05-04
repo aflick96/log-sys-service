@@ -9,6 +9,7 @@ package edu.log.controllers;
 import edu.log.dto.InvoiceDTO;
 import edu.log.models.invoicing.Invoice;
 import edu.log.services.invoicing.InvoiceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,12 +20,14 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/invoices")
 public class InvoicingController {
-    private final InvoiceService invoiceService;
+    @Autowired
+    private InvoiceService invoiceService;
 
-    public InvoicingController(InvoiceService invoiceService) {
-        this.invoiceService = invoiceService;
-    }
+    // Constructor
+    public InvoicingController() {}
 
+
+    // Get all invoices
     @GetMapping
     public ResponseEntity<List<InvoiceDTO>> getAllInvoices() {
         List<Invoice> invoices = invoiceService.getAllInvoices();
@@ -37,6 +40,7 @@ public class InvoicingController {
         return ResponseEntity.ok(invoiceDTOs);
     }
 
+    // Get unpaid invoices
     @GetMapping("/unpaid")
     public ResponseEntity<List<InvoiceDTO>> getUnpaidInvoices() {
         Optional<List<Invoice>> invoices = invoiceService.getUnpaidInvoices();
@@ -49,6 +53,7 @@ public class InvoicingController {
         return ResponseEntity.ok(invoiceDTOs);
     }
 
+    // Update invoice status to paid
     @PutMapping("/{id}/pay")
     public ResponseEntity<InvoiceDTO> payInvoice(@PathVariable("id") Long id) {
         try {

@@ -1,3 +1,8 @@
+/*
+ * Token.java
+ * 
+ * This entity represents a token associated with a user. It contains fields for the token value and a reference to the user it belongs to. The token is used for authentication purposes.
+ */
 package edu.log.models.user;
 
 import jakarta.persistence.*;
@@ -17,13 +22,14 @@ public class Token {
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
     
+    // Constructors
     public Token() {}
-
     public Token(User user, String tokenValue) {
         this.user = user;
         this.tokenValue = tokenValue;
     }
 
+    // Getters and Setters
     public Long getId() { return id; } 
     public void setId(Long id) { this.id = id; } 
         

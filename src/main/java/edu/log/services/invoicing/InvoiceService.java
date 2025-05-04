@@ -6,6 +6,7 @@
 
 package edu.log.services.invoicing;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.log.models.booking.Booking;
 import edu.log.models.invoicing.Invoice;
@@ -17,12 +18,12 @@ import java.util.Optional;
 
 @Service
 public class InvoiceService {
-    private final InvoiceRepository invoiceRepo;
+    @Autowired
+    private InvoiceRepository invoiceRepo;
 
-    public InvoiceService(InvoiceRepository invoiceRepo) {
-        this.invoiceRepo = invoiceRepo;
-    }
+    public InvoiceService() {}
 
+    // Method to generate an invoice for a booking
     public Invoice generateInvoice(Booking booking) {
         if (invoiceRepo.findByBookingId(booking.getId()) != null) {
             throw new IllegalStateException("Invoice already exists for booking id: " + booking.getId());
@@ -32,19 +33,23 @@ public class InvoiceService {
         return invoiceRepo.save(invoice);
     }
 
+    // Method to retrieve all invoices
     public List<Invoice> getAllInvoices() {
         return invoiceRepo.findAll();
     }
 
+    // Method to retrieve an invoice by its ID
     public Optional<Invoice> getInvoiceById(Long id) {
         return invoiceRepo.findById(id);
     }
 
+    // Method to retrieve all unpaid invoices
     public Optional<List<Invoice>> getUnpaidInvoices() {
         return Optional.of(
                 invoiceRepo.findAll().stream().filter(invoice -> invoice.getStatus() == InvoiceStatus.UNPAID).toList());
     }
 
+    // Method to mark an invoice as paid
     public Invoice markAsPaid(Long id) {
         Invoice invoice = invoiceRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invoice not found"));
@@ -56,5 +61,4 @@ public class InvoiceService {
         invoice.setStatus(InvoiceStatus.PAID);
         return invoiceRepo.save(invoice);
     }
-    
 }

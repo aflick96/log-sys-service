@@ -16,28 +16,31 @@ import edu.log.repositories.warehouse.WarehouseRepository;
 import edu.log.services.google.GoogleMapsService;
 import edu.log.services.invoicing.InvoiceService;
 import edu.log.utils.BookingCalculator;
-import org.springframework.stereotype.Service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class BookingService {
 
-    private final BookingRepository b_repo;
-    private final InvoiceRepository invoiceRepo;
-    private final GoogleMapsService gms;
-    private final WarehouseRepository w_repo;
-    private final InvoiceService invoiceService;
+    @Autowired
+    private BookingRepository b_repo;
+    
+    @Autowired
+    private InvoiceRepository invoiceRepo;
 
-    public BookingService(BookingRepository b_repo, InvoiceRepository invoiceRepo, GoogleMapsService gms,
-            WarehouseRepository w_repo, InvoiceService invoiceService) {
-        this.b_repo = b_repo;
-        this.gms = gms;
-        this.w_repo = w_repo;
-        this.invoiceService = invoiceService;
-        this.invoiceRepo = invoiceRepo;
-    }
+    @Autowired
+    private GoogleMapsService gms;
+
+    @Autowired
+    private WarehouseRepository w_repo;
+
+    @Autowired
+    private InvoiceService invoiceService;
+
+    public BookingService() {}
 
     public Optional<Booking> getBookingByContainerId(String containerId) {
         return b_repo.findByContainerId(containerId);
@@ -97,5 +100,4 @@ public class BookingService {
         invoiceRepo.deleteAll();
         b_repo.deleteAll();
     }
-
 }

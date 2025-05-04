@@ -23,6 +23,7 @@
      @Autowired
      private UserService us;
  
+     // Endpoint for user login
      @PostMapping("/token")
      public ResponseEntity<String> login(@RequestBody UserDTO user) {
          if (user == null) {
@@ -35,7 +36,7 @@
          if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
              throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email and password must not be empty.");
          }
- 
+         
          boolean isAuthenticated = us.validateLogin(email, password);
          if (!isAuthenticated) {
              throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid email or password. Please sign up.");
@@ -45,6 +46,7 @@
          return ResponseEntity.ok("Token:" + token);
      }
  
+     // Endpoint for user registration
      @PostMapping("/create")
      public ResponseEntity<User> register(@RequestBody UserDTO user) {
          if (user == null) {

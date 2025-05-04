@@ -28,7 +28,8 @@
  
      @Bean
      public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-         http
+        // Configure the security filter chain 
+        http
              .csrf(csrf -> csrf.disable())
              .authorizeHttpRequests(auth -> auth
                  .requestMatchers(
@@ -50,7 +51,8 @@
  
          return http.build();
      }
- 
+
+     // Configure AccessDeniedHandler to handle access denied exceptions for unauthorized access
      @Bean
      public AccessDeniedHandler accessDeniedHandler() {
          return (request, response, accessDeniedException) -> {
@@ -60,6 +62,7 @@
          };
      }
  
+     // Configure AuthenticationEntryPoint to handle authentication exceptions for unauthorized access
      @Bean
      public AuthenticationEntryPoint authenticationEntryPoint() {
          return (request, response, authException) -> {

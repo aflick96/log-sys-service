@@ -13,21 +13,24 @@ import edu.log.models.booking.Booking;
 import edu.log.repositories.shipping.ShippingStatusRepository;
 import edu.log.repositories.warehouse.WarehouseRepository;
 import edu.log.repositories.booking.BookingRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ShippingStatusService {
-    private final ShippingStatusRepository ss_repo;
-    private final WarehouseRepository w_repo;
-    private final BookingRepository b_repo;
+    @Autowired
+    private ShippingStatusRepository ss_repo;
+    
+    @Autowired
+    private WarehouseRepository w_repo;
+    
+    @Autowired
+    private BookingRepository b_repo;
 
-    public ShippingStatusService(ShippingStatusRepository ss_repo, WarehouseRepository w_repo, BookingRepository b_repo) {
-        this.ss_repo = ss_repo;
-        this.w_repo = w_repo;
-        this.b_repo = b_repo;
-    }
+    public ShippingStatusService() {}
 
     // Create a new shipping status
     public ShippingStatus createShippingStatus(Long bookingId, ShippingStatusType status, Long warehouseId) {

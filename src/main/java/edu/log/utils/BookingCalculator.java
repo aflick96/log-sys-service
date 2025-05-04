@@ -29,6 +29,7 @@ public class BookingCalculator {
         return roundToTwoDecimals(finalPrice);
     }
 
+    // This method computes the estimated delivery time in days based on the distance and service type.
     public static int computeEstimatedDeliveryTime(Booking booking) {
         double baseTime = (booking.getDistance() / 1000.0) + 1;
         double estimatedHours = baseTime * getDeliveryTimeMultiplier(booking.getServiceType());
@@ -52,10 +53,12 @@ public class BookingCalculator {
     }
     
 
+    // This method converts meters to miles.
     public static double convertMetersToMiles(double meters) {
         return meters * 0.000621371;
     }
 
+    // This method returns a multiplier for the price based on the service type.
     private static double getServiceMultiplier(BookingServiceType type) {
         switch (type) {
             case EXPEDITED: return 1.5;
@@ -69,6 +72,7 @@ public class BookingCalculator {
         }
     }
 
+    // This method returns a multiplier for the estimated delivery time based on the service type.
     private static double getDeliveryTimeMultiplier(BookingServiceType type) {
         switch (type) {
             case EXPEDITED: return 0.5; // Faster
