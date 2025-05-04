@@ -14,7 +14,7 @@ import jakarta.validation.constraints.Size;
 @Table(name = "warehouse")
 public class Warehouse {
     
-   @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
