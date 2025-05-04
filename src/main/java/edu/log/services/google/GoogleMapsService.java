@@ -54,18 +54,18 @@ public class GoogleMapsService {
     }
 
     // Validate address using Google Maps API
-    public boolean isAddressValid(String address) {
-        String url = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
-                URLEncoder.encode(address, StandardCharsets.UTF_8) +
-                "&key=" + googleApiKey;
+    // public boolean isAddressValid(String address) {
+    //     String url = "https://maps.googleapis.com/maps/api/geocode/json?address=" +
+    //             URLEncoder.encode(address, StandardCharsets.UTF_8) +
+    //             "&key=" + googleApiKey;
 
-        Map<String, Object> response = rt.getForObject(url, Map.class);
+    //     Map<String, Object> response = rt.getForObject(url, Map.class);
 
-        if (response == null || !"OK".equals(response.get("status"))) {
-            return false;
-        }
+    //     if (response == null || !"OK".equals(response.get("status"))) {
+    //         return false;
+    //     }
 
-        List<?> results = (List<?>) response.get("results");
-        return results != null && !results.isEmpty();
-    }
+    //     List<?> results = (List<?>) response.get("results");
+    //     return results != null && !results.isEmpty();
+    // }
 }
