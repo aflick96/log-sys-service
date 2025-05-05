@@ -35,6 +35,8 @@
                  .requestMatchers(
                      "/api/auth/token",
                      "/api/auth/create",
+                     "/swagger-ui/**",
+                     "/v3/api-docs/**",
                      "/h2-console/**"
                  ).permitAll()
                  .anyRequest().authenticated()
